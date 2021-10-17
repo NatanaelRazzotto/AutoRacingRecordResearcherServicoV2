@@ -1,0 +1,35 @@
+version: "3" 
+
+services: 
+  app:
+    depends_on:
+      - db
+    build: .
+    command: npm start
+    ports: 
+      - "3000:3000"
+    volumes:
+    - .:/app
+    networks:
+      - mysql-compose-network
+
+  db:
+    container_name: 'database_node_formula1'
+    image: mysql:5.7.31 
+    environment: 
+      - MYSQL_ROOT_PASSWORD=razzotto
+      - MYSQL_DATABASE=f1BaseData
+    volumes:
+    - dbdata:/var/lib/mysql
+    restart: always
+    ports: 
+      - '3306:3306'
+    networks:
+      - mysql-compose-network
+
+volumes:
+  dbdata:
+
+networks: 
+  mysql-compose-network:
+    driver: bridge
