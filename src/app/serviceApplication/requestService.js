@@ -67,34 +67,7 @@ class RequestService {
     //const response = await fetch(request);
     return response;
   }
-
-  /* requestHeader3() {
-    fetch('https://api-formula-1.p.rapidapi.com/timezone', {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-host': 'api-formula-1.p.rapidapi.com',
-        'x-rapidapi-key': 'fde9a3be57mshff1c0ca8abef816p1a3f80jsnf579fae90b8e',
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
-  requestHeaderFetch() {
-    fetch('https://ergast.com/api/f1/drivers.json?=123')
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result.MRData.DriverTable);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  } */
+  
 }
 
 module.exports = { RequestService };

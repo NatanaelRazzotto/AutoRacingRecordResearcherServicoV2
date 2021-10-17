@@ -1,4 +1,3 @@
-//const { RepositoryRaces } = require('../../../server/repository/sequelize/repositoryClass/repositoryRaces');
 const {
     FetchCircuitUseCase,
 } = require("../circuitUseCase/fetchCircuitUseCase")
@@ -6,13 +5,11 @@ const {
 class FetchRacesUseCase {
     constructor(requestService) {
         this.requestService = requestService
-        //this.repositoryRaces = new RepositoryRaces();
         this.fetchCircuitUseCase = new FetchCircuitUseCase(this.requestService);
     }
     async persistenceOfObjects(Resultados) {
         const circuitPersistido = await this.fetchCircuitUseCase.persistenceOfObjects(Resultados.Circuit);
         const objectResult = this.preparObjectRaces(Resultados, circuitPersistido.circuitId);
-        //  const persisted = await this.repositoryRaces.create(objectResult);
         const requestPersisted = await this.requestService.requestPost(objectResult, "/race");
         return requestPersisted;
     }

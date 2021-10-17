@@ -58,30 +58,7 @@ describe('RaceResultUseCase', () => {
 		);
 	});
 
-	/*it('Fetch Data ', async () => {
-		const configureFilter = {
-			year: 1960,
-			round: 5,
-		};
-		const resultRace = await fetchResultRaceUseCase.executeGerador(
-			configureFilter
-		); any(Object),
-			Construc
-		// eslint-disable-next-line no-console
-		console.log(resultRace);
-		/*expect(resultRace.Results).toEqual(
-			expect.arrayContaining([
-				expect.objectContaining({
-					number: expect.any(String),
-					position: expect.any(String),
-					positionText: expect.any(String),
-					Driver: expect.tor: expect.any(Object),
-				}),
-			])
-		);*/
-
-
-	it('Pesistencia de dados ', async () => {
+	('Pesistencia de dados ', async () => {
 		const configureFilter = {
 			year: 1960,
 			round: 5,

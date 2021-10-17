@@ -7,7 +7,6 @@ const {
 const {
   FetchRacesUseCase,
 } = require("../../UseCase/racesUseCase/fetchRacesUseCase");
-//const { RepositoryResults } = require('../../server/repository/sequelize/repositoryClass/repositoryResults');
 
 class FetchResultRaceUseCase {
   constructor(requestService) {
@@ -15,7 +14,6 @@ class FetchResultRaceUseCase {
     this.requestService = requestService;
     this.randomNumberService = new RandomNumberService();
     this.fetchRacesUseCase = new FetchRacesUseCase(this.requestService);
-    //  this.repositoryResults = new RepositoryResults();
   }
 
   async execute(configureFilter) {
@@ -35,27 +33,20 @@ class FetchResultRaceUseCase {
   async fetchExecute(configureFilter) {
     const fetchData = await this.fecthResults(configureFilter); // .MRData.RaceTable
     this.fetch = fetchData.MRData.RaceTable;
-    // const table = this.getRaceTable();
     const results = this.getResults();
     const persist = this.persitencia(results);
     return persist;
   }
   async persitencia(Resultados) {
     const racePersistido = await this.fetchRacesUseCase.persistenceOfObjects(Resultados);
-    //continuar daqui
     const objectResult = this.preparObjectResults(Resultados.Results[0], racePersistido.raceId);
-    // const resultPersistido = await this.repositoryResults.create(objectResult);
-    const requestPersisted = await this.requestService.requestPost(objectResult, "/result");
+     const requestPersisted = await this.requestService.requestPost(objectResult, "/result");
     return requestPersisted;
   }
-//
   async getPersitencia() {
     const requestPersisted = await this.requestService.requestGet("/results");
     return requestPersisted;
   }
-//
-
-
   preparObjectResults(Result, idCircuit) {
     const objectResult = {
       raceId: idCircuit,
@@ -67,7 +58,7 @@ class FetchResultRaceUseCase {
       positionText: Result.positionText,
       points: Result.points,
       laps: Result.laps,
-      statusId: Result.status,//status
+      statusId: Result.status,
       //fastestLap: Result.FastestLap.lap,
       // rank: Result.FastestLap.rank,
       //fastestLapTime: Result.FastestLap.Time.time,
@@ -76,21 +67,6 @@ class FetchResultRaceUseCase {
     }
     return objectResult;
   }
-
-  /* async execute(configureFilter) {
-    const fetch = await this.fecthResults(configureFilter);
-    const table = this.getRaceTable(fetch);
-    const results = this.getResults(table);
-    return results;
-  }
-
-  async executeGerador(configure) {
-    const configureFilter = this.generateParamURL(configure);
-    const fetch = await this.fecthResults(configureFilter);
-    const table = this.getRaceTable(fetch);
-    const results = this.getResults(table);
-    return results;
-  } */
 
   async fecthResults(configureFilter) {
     const urlSearch = UrlService.generateURLresults(configureFilter);
@@ -113,23 +89,6 @@ class FetchResultRaceUseCase {
     return configureFilter;
   }
 
-  /* generateParamURL(configure) {
-    const numberRound = RandomNumberService.generate(configure.round);
-    const yearRace = RandomNumberService.generateYear(1951, configure.year);
-    const configureFilter = {
-      year: yearRace,
-      round: numberRound,
-      grid: 3,
-    };
-    return configureFilter;
-  } */
-
-  // metodo legado
-  //  getRaceTable() {
-  //   const object = this.fetch.Races;
-  //   return object;
-  // }
-
   getResults() {
     //   var obj = Races.forEach(this.resultsRace)
     // var race = Races[0];
@@ -145,7 +104,6 @@ class FetchResultRaceUseCase {
   }
 
   resultsRace(item) {
-    // this.races[index] = item;
     this.races.push(item);
     return true;
   }

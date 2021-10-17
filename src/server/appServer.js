@@ -38,21 +38,18 @@ app.get("/results", async (req, res) => {
 app.post("/circuit", async (req, res) => {
     const repositoryCircuits = new RepositoryCircuits();
     const objetoObtido = await repositoryCircuits.create(req.body);
-    //let objetoObtido = req.body;
-    return res.json(objetoObtido);//{ titulo: "testando" }
+    return res.json(objetoObtido);
 });
 
 app.post("/race", async (req, res) => {
     const repositoryRaces = new RepositoryRaces();
     const objetoObtido = await repositoryRaces.create(req.body);
-    //let objetoObtido = req.body;
-    return res.json(objetoObtido);//{ titulo: "testando" }
+    return res.json(objetoObtido);
 });
 app.post("/result", async (req, res) => {
     const repositoryResults = new RepositoryResults();
     const objetoObtido = await repositoryResults.create(req.body);
-    //let objetoObtido = req.body;
-    return res.json(objetoObtido);//{ titulo: "testando" }
+     return res.json(objetoObtido);
 });
 
 app.listen(3000, () => {

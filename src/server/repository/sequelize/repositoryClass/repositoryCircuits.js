@@ -4,8 +4,7 @@ class RepositoryCircuits {
     async create(Circuits) {
         console.log(Circuits);
         const validate = await this.findAllWhere(Circuits)
-        //console.log(validate[0])
-        if ((validate[0] != null)) {
+          if ((validate[0] != null)) {
             console.log("já tem");
             //  console.log(validate);
             return validate[0];

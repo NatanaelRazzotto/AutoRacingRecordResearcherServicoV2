@@ -1,15 +1,10 @@
-//const { RepositoryCircuits } = require('../../../server/repository/sequelize/repositoryClass/repositoryCircuits');
-// const {
-//     RequestService,
-// } = require('../../serviceApplication/requestService');
+
 class FetchCircuitUseCase {
     constructor(requestService) {
-        // this.repositoryCircuits = new RepositoryCircuits();
         this.requestService = requestService;
     }
     async persistenceOfObjects(object) {
         const objectResult = this.preparObjectCircuit(object);
-        // const persisted = await this.repositoryCircuits.create(objectResult);
         const requestPersisted = await this.requestService.requestPost(objectResult, "/circuit");
         return requestPersisted;
     }
