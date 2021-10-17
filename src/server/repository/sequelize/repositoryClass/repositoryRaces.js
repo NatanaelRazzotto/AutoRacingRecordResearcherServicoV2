@@ -21,7 +21,8 @@ class RepositoryRaces {
             where: {
                 [Op.and]: [
                     { year: race.year },
-                    { round: race.round }
+                    { round: race.round },
+                    { name: race.name }
                 ]
             },
             raw: true,
@@ -34,8 +35,8 @@ class RepositoryRaces {
     }
 
     async findAll() {
-        const Circuits = await ModelCircuits.findAll();
-        return Circuits;
+        const races = await ModelRaces.findAll();
+        return races;
     }
 }
 

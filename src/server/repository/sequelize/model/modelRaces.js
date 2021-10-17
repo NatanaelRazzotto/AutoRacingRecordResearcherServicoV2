@@ -28,7 +28,6 @@ const ModelRaces = database.define(
     },
     name: {
       type: DataTypes.STRING(255),
-      unique: true,
       allowNull: false,
     },
     date: {
@@ -36,7 +35,7 @@ const ModelRaces = database.define(
       allowNull: false,
     },
     time: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
     url: {

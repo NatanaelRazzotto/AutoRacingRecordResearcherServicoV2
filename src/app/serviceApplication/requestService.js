@@ -49,6 +49,25 @@ class RequestService {
     return request;
   }
 
+  async requestGet(ulrTipo) {
+    const response = new fetch('http://localhost:3000' + ulrTipo, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        //console.log(result);
+        return result
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    //const response = await fetch(request);
+    return response;
+  }
+
   /* requestHeader3() {
     fetch('https://api-formula-1.p.rapidapi.com/timezone', {
       method: 'GET',

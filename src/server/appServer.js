@@ -14,8 +14,23 @@ process.on('SIGINT', shutdown);
 //region GET
 
 app.get("/", (req, res) => {
-    //res.send("Introdução a API");
-    return res.json({ titulo: "Como criar API" })
+    return res.json({ titulo: "API test" })
+});
+
+app.get("/circuit", async (req, res) => {
+    const repositoryCircuits = new RepositoryCircuits();
+    const objetoObtido = await repositoryCircuits.findAll();
+    return res.json(objetoObtido);
+});
+app.get("/races", async (req, res) => {
+    const repositoryRaces = new RepositoryRaces();
+    const objetoObtido = await repositoryRaces.findAll();
+    return res.json(objetoObtido);
+});
+app.get("/results", async (req, res) => {
+    const repositoryResults = new RepositoryResults();
+    const objetoObtido = await repositoryResults.findAll();
+    return res.json(objetoObtido);
 });
 
 //region POST

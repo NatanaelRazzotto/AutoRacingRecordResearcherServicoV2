@@ -36,8 +36,8 @@ class RepositoryResults {
     }
 
     async findAll() {
-        const users = await ModelResults.findAll();
-        return users;
+        const results = await ModelResults.findAll();
+        return results;
     }
 }
 

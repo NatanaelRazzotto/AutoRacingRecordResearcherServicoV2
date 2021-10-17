@@ -21,6 +21,7 @@ services:
       - MYSQL_DATABASE=f1BaseData
     volumes:
     - dbdata:/var/lib/mysql
+    - ./docker/provision/mysql/init:/docker-entrypoint-initdb.d
     restart: always
     ports: 
       - '3306:3306'

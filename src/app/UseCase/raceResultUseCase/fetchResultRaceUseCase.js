@@ -48,6 +48,14 @@ class FetchResultRaceUseCase {
     const requestPersisted = await this.requestService.requestPost(objectResult, "/result");
     return requestPersisted;
   }
+//
+  async getPersitencia() {
+    const requestPersisted = await this.requestService.requestGet("/results");
+    return requestPersisted;
+  }
+//
+
+
   preparObjectResults(Result, idCircuit) {
     const objectResult = {
       raceId: idCircuit,
