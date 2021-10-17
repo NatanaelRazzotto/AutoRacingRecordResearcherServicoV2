@@ -35,8 +35,8 @@ app.post("/result", async (req, res) => {
     return res.json(objetoObtido);//{ titulo: "testando" }
 });
 
-app.listen(8080, () => {
-    console.log("servidor iniciado na porta 8080: http://localhost:8080/");
+app.listen(3000, () => {
+    console.log("servidor iniciado na porta 3000: http://localhost:3000/");
 });
 
 //docker run --name mysql-server -p 3306:3306 -e MYSQL_ROOT_PASSWORD=razzotto -d mysql:latest

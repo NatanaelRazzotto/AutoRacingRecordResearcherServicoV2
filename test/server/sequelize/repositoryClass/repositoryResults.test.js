@@ -1,11 +1,11 @@
 const { RepositoryResults } = require('../../../../src/server/repository/sequelize/repositoryClass/repositoryResults');
-const database = require('../../../../src/server/repository/sequelize/db')
+const database = require('../../../../src/server/repository/db')
 describe('Repository', () => {
     const repositoryResults = new RepositoryResults();
     it('Sync DB', async () => {
         const received = await database.sync();
         console.log(received);
-        expect(received.config.database).toEqual('f1Base');
+        expect(received.config.database).toEqual('f1BaseData');
     });
     it('create Results', async () => {
         const result = {

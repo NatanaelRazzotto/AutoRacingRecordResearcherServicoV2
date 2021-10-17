@@ -30,7 +30,7 @@ class RequestService {
 
   async requestPost(objectPost, ulrTipo) {
     //const object = { name: 'James Gordon' };
-    const request = new fetch('http://localhost:8080' + ulrTipo, {
+    const request = new fetch('http://localhost:3000' + ulrTipo, {
       method: 'POST',
       body: JSON.stringify(objectPost),
       headers: {

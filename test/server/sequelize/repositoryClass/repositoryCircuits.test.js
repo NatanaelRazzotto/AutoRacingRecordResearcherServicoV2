@@ -1,11 +1,11 @@
 const { RepositoryCircuits } = require('../../../../src/server/repository/sequelize/repositoryClass/repositoryCircuits');
-const database = require('../../../../src/server/repository/sequelize/db');
+const database = require('../../../../src/server/repository/db');
 describe('Repository', () => {
     const repositoryCircuits = new RepositoryCircuits();
     it('Sync DB', async () => {
         const received = await database.sync();
         console.log(received);
-        expect(received.config.database).toEqual('f1Base');
+        expect(received.config.database).toEqual('f1BaseData');
     });
     it('create Circuit', async () => {
         const Circuit = {
@@ -42,4 +42,4 @@ describe('Repository', () => {
          }
  
      });*/
-})
+});

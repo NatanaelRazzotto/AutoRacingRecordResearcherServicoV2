@@ -4,7 +4,7 @@
   "description": "praticando node",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "start": "node src/server/appServer.js"
   },
   "author": "Natanael",
   "license": "ISC",

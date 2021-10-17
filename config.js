@@ -3,7 +3,7 @@ const config = {
     port: 3000,
   },
   db: {
-    database: "f1Base",
+    database: "f1BaseData",
     username: "root",
     password: "razzotto",
   },
