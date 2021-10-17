@@ -8,6 +8,11 @@ const app = express();
 
 app.use(express.json());
 
+// Stop DOCKER com CRTL ^C
+process.on('SIGINT', shutdown);
+
+//region GET
+
 app.get("/", (req, res) => {
     //res.send("Introdução a API");
     return res.json({ titulo: "Como criar API" })
@@ -38,5 +43,11 @@ app.post("/result", async (req, res) => {
 app.listen(3000, () => {
     console.log("servidor iniciado na porta 3000: http://localhost:3000/");
 });
-
 //docker run --name mysql-server -p 3306:3306 -e MYSQL_ROOT_PASSWORD=razzotto -d mysql:latest
+
+function shutdown() {
+    console.log('shutdown express');
+    app.close(function () {
+      console.log('Encerrando servidor express');
+    });
+  }
