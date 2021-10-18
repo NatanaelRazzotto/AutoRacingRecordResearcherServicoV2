@@ -58,7 +58,7 @@ describe('RaceResultUseCase', () => {
 		);
 	});
 
-	('Pesistencia de dados ', async () => {
+	it('Pesistencia de dados ', async () => {
 		const configureFilter = {
 			year: 1960,
 			round: 5,
